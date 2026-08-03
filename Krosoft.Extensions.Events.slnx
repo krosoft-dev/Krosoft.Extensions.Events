@@ -3,4 +3,8 @@
     <Project Path="src/Krosoft.Extensions.Events/Krosoft.Extensions.Events.csproj" />
     <Project Path="src/Krosoft.Extensions.Events.Identity/Krosoft.Extensions.Events.Identity.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Krosoft.Extensions.Events.Tests/Krosoft.Extensions.Events.Tests.csproj" />
+    <Project Path="tests/Krosoft.Extensions.Events.Identity.Tests/Krosoft.Extensions.Events.Identity.Tests.csproj" />
+  </Folder>
 </Solution>

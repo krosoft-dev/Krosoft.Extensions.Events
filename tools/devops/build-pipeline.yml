@@ -1,4 +1,4 @@
-name: Build 'Krosoft.Extensions' - $(Date:yyyy.MM.dd).$(BuildID)
+name: Build 'Krosoft.Extensions.Events' - $(Date:yyyy.MM.dd).$(BuildID)
 
 trigger:
   - main

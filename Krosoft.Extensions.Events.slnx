@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Krosoft.Extensions.Events/Krosoft.Extensions.Events.csproj" />
+    <Project Path="src/Krosoft.Extensions.Events.Identity/Krosoft.Extensions.Events.Identity.csproj" />
+  </Folder>
+</Solution>

@@ -1,4 +1,4 @@
-name: Nuget 'Krosoft.Extensions.Events.Identity' - $(Date:yyyy.MM.dd).$(BuildID)
+name: Nuget 'Krosoft.Extensions.Events' - $(Date:yyyy.MM.dd).$(BuildID)
 
 pr: none
 
@@ -15,7 +15,8 @@ trigger:
       - main
   paths:
     include:
-      - "**/Krosoft.Extensions.Events.Identity/*"
+      - src
+      - Directory.Build.props
 
 extends:
   template: tools/devops/templates/pipelines/nuget-template.yml@Krosoft.Extensions

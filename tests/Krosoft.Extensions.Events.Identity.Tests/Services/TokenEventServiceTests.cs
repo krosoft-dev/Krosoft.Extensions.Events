@@ -75,7 +75,7 @@ public class TokenEventServiceTests : BaseTest
     }
 
     [TestMethod]
-    public async Task Publish_ActionFireForgetExecutee_PropageLeCancellationToken()
+    public async Task Publish_ActionFireForgetExecutee_NePropagePasLeCancellationTokenDeLaRequete()
     {
         using var cancellationTokenSource = new CancellationTokenSource();
         var cancellationToken = cancellationTokenSource.Token;
@@ -85,9 +85,13 @@ public class TokenEventServiceTests : BaseTest
         Check.That(_actionFireForget).IsNotNull();
         await _actionFireForget!(_mediatorMock.Object);
 
+        // Fire-and-forget : la publication ne doit pas dependre du token de la requete.
+        _mediatorMock.Verify(x => x.Publish(It.IsAny<INotification>(),
+                                            It.Is<CancellationToken>(t => t == CancellationToken.None)),
+                             Times.Once);
         _mediatorMock.Verify(x => x.Publish(It.IsAny<INotification>(),
                                             It.Is<CancellationToken>(t => t == cancellationToken)),
-                             Times.Once);
+                             Times.Never);
     }
 
     [TestMethod]

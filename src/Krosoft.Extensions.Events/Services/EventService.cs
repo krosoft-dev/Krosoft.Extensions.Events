@@ -15,6 +15,8 @@ public class EventService : IEventService
 
     public void Publish(INotification notification, CancellationToken cancellationToken)
     {
-        _fireForgetService.FireAsync<IMediator>(async mediator => { await mediator.Publish(notification, cancellationToken); });
+        // Fire-and-forget : le travail survit a la requete appelante. On ne propage donc pas
+        // son CancellationToken, sinon il est annule des la fin de la requete (OperationCanceledException).
+        _fireForgetService.FireAsync<IMediator>(async mediator => { await mediator.Publish(notification, CancellationToken.None); });
     }
 }

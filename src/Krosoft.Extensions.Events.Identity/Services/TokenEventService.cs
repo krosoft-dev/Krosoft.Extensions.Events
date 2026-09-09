@@ -21,11 +21,13 @@ public class TokenEventService : EventService, ITokenEventService
 
     public void Publish(Func<KrosoftToken, INotification> func, CancellationToken cancellationToken)
     {
+        // Fire-and-forget : voir EventService.Publish. On ne propage pas le CancellationToken
+        // de la requete, annule des la fin de celle-ci (OperationCanceledException).
         _fireForgetService.FireAsync<IMediator>(async mediator =>
         {
             var positiveToken = _positiveTokenBuilderService.Build();
 
-            await mediator.Publish(func(positiveToken), cancellationToken);
+            await mediator.Publish(func(positiveToken), CancellationToken.None);
         });
     }
 }

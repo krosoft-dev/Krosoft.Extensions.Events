@@ -8,6 +8,6 @@
 		<PackageReference Include="MediatR" Version="12.5.0" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Krosoft.Extensions.Jobs" Version="2026.11.1.12342" />
+		<PackageReference Include="Krosoft.Extensions.Jobs" Version="2026.11.2.12417" />
 	</ItemGroup>
 </Project>
